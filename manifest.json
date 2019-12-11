@@ -1,0 +1,32 @@
+{
+    "name": "C/W autocomplete",
+    "version": "0.1.0",
+    "description": "AKB48 TeamSH 2020 C/W songs",
+    "manifest_version": 2,
+    "permissions": [
+        "storage",
+        "declarativeContent",
+        "activeTab"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "options_page": "options.html",
+    "page_action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://cwsong.akb48-china.com/f/ERLxJo"
+            ],
+            "js": [
+                "autoComplete.js"
+            ],
+            "run_at": "document_end"
+        }
+    ]
+}
