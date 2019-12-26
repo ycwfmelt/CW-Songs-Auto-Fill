@@ -1,4 +1,4 @@
-import { getConfig, getConfigTemplate } from './cwConfig'
+import { getConfig, getConfigTemplate } from '../cwConfig'
 import handler from './handler'
 import { akb48teamParser } from './originParser'
 

@@ -1,16 +1,1 @@
-import { getConfig, getConfigTemplate } from '../src/content/cwConfig.js/index.js'
-
-const configMap = getConfigTemplate()
-
-getConfig().then(config => {
-    for (let [key, val] of Object.entries(config)) {
-        let e = document.createElement('p')
-        e.innerHTML = key + ': ' + val
-        document.querySelector('.config').appendChild(e)
-    }
-})
-
-let changeConfigBtn = document.getElementById('changeConfig')
-changeConfigBtn.addEventListener('click', () => {
-    chrome.tabs.create({ 'url': 'chrome://extensions/?options=' + chrome.runtime.id })
-})
+!function(e){var n={};function t(r){if(n[r])return n[r].exports;var o=n[r]={i:r,l:!1,exports:{}};return e[r].call(o.exports,o,o.exports,t),o.l=!0,o.exports}t.m=e,t.c=n,t.d=function(e,n,r){t.o(e,n)||Object.defineProperty(e,n,{enumerable:!0,get:r})},t.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},t.t=function(e,n){if(1&n&&(e=t(e)),8&n)return e;if(4&n&&"object"==typeof e&&e&&e.__esModule)return e;var r=Object.create(null);if(t.r(r),Object.defineProperty(r,"default",{enumerable:!0,value:e}),2&n&&"string"!=typeof e)for(var o in e)t.d(r,o,function(n){return e[n]}.bind(null,o));return r},t.n=function(e){var n=e&&e.__esModule?function(){return e.default}:function(){return e};return t.d(n,"a",n),n},t.o=function(e,n){return Object.prototype.hasOwnProperty.call(e,n)},t.p="",t(t.s=2)}([function(e,n,t){"use strict";t.d(n,"a",(function(){return o})),t.d(n,"c",(function(){return c})),t.d(n,"b",(function(){return i}));let r="cwConfig";function o(){return new Promise((function(e,n){chrome.storage.local.get(r,n=>{console.log(n,n.cwConfig),cwConfigMap=function(e){return new Map(JSON.parse(e))}(n.cwConfig),e(cwConfigMap)})}))}function c(e){let n=(t=e,JSON.stringify([...t]));var t;return new Promise((function(e,t){chrome.storage.local.set({cwConfigStorageKey:n},n=>{e(n)})}))}function i(){return new Map([["昵称",""],["团体",""],["歌曲名",""],["AKB48 Team SH 首推的成员",""],["AKB48 Team SH 二推的成员",""],["最喜欢的AKB48 Group组合",""],["最喜欢的AKB48成员",""],["最喜欢的AKB48 Group 成员",""],["所在城市",""],["希望AKB48 Team SH 来和你见面的区域",""]])}},,function(e,n,t){"use strict";t.r(n);var r=t(0);const o=Object(r.b)();Object(r.a)().then(e=>{for(let[n,t]of Object.entries(e)){let e=document.createElement("p");e.innerHTML=n+": "+t,document.querySelector(".config").appendChild(e)}}),document.getElementById("changeConfig").addEventListener("click",()=>{chrome.tabs.create({url:"chrome://extensions/?options="+chrome.runtime.id})}),document.getElementById("init").addEventListener("click",()=>{Object(r.c)(o).then(e=>{Object(r.a)().then(e=>{console.log(e)})})})}]);

@@ -2,9 +2,13 @@ const path = require('path')
 
 module.exports = {
     mode: 'production',
-    entry: './src/content/index.js',
+    entry: {
+        content: "./src/content/index.js",
+        options: "./src/options.js",
+        popup: "./src/popup.js"
+    },
     output: {
-        filename: 'content.js',
+        filename: '[name].js',
         path: path.resolve(__dirname, 'dist')
     }
 }
