@@ -24,7 +24,7 @@
                 "http://cwsong.akb48-china.com/f/ERLxJo"
             ],
             "js": [
-                "autoComplete.js"
+                "content.js"
             ],
             "run_at": "document_end"
         }

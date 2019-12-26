@@ -1,0 +1,15 @@
+{
+  "name": "akb",
+  "version": "1.0.0",
+  "main": "src/main.js",
+  "repository": "git@github.com:ycwfmelt/CW-Songs-Auto-Fill.git",
+  "author": "melt <ycwfmelt@live.cn>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.41.4",
+    "webpack-cli": "^3.3.10"
+  },
+  "scripts": {
+    "build": "webpack"
+  }
+}
