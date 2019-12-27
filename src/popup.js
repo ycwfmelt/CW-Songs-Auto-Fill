@@ -1,3 +1,4 @@
+/*
 import { getConfig, getConfigTemplate, setConfig } from './cwConfig'
 
 const configMap = getConfigTemplate()
@@ -23,3 +24,4 @@ initBtn.addEventListener('click', () => {
             })
     })
 })
+*/

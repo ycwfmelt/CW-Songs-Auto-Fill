@@ -6,7 +6,8 @@ module.exports = {
     entry: {
         content: "./src/content/index.js",
         options: "./src/options.js",
-        popup: "./src/popup.js"
+        popup: "./src/popup.js",
+        background: "./src/background.js"
     },
     output: {
         filename: '[name].js',
@@ -14,7 +15,7 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin({
-            cleanOnceBeforeBuildPatterns: ['!assets/*', '!background.js', '!manifest.json', '!options.html', '!popup.html']
+            cleanOnceBeforeBuildPatterns: ['**/*', '!assets/*', '!manifest.json', '!options.html', '!popup.html']
         })
     ]
 }

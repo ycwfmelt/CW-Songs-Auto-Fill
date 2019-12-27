@@ -12,6 +12,8 @@
 //         page.appendChild(button)
 //     }
 // }
+
+/*
 import { getConfig } from "./cwConfig"
 
 document.getElementById('save-config').addEventListener('click', e => {
@@ -29,4 +31,4 @@ document.getElementById('save-config').addEventListener('click', e => {
 
     console.log(curCwConfig)
 })
-
+*/

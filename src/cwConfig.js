@@ -1,21 +1,23 @@
 let cwConfigStorageKey = "cwConfig"
 
 export function getConfig() {
-    return new Promise(function (resolve, _) {
+    return new Promise(function (resolve, reject) {
         chrome.storage.local.get(cwConfigStorageKey, result => {
-            console.log(result, result.cwConfig)
-            cwConfigMap = jsonToMap(result.cwConfig)
-            resolve(cwConfigMap)
+            if (chrome.runtime.lastError) reject(chrome.runtime.lastError.message)
+            if (typeof result[cwConfigStorageKey] === 'undefined') {
+                reject(`${cwConfigStorageKey} not exist.`)
+            } else {
+                cwConfigMap = jsonToMap(result.cwConfig)
+                resolve(cwConfigMap)
+            }
         })
     })
 }
 
 export function setConfig(cwConfig) {
     let cwConfigStr = mapToJson(cwConfig)
-    return new Promise(function (resolve, _) {
-        chrome.storage.local.set({ cwConfigStorageKey: cwConfigStr }, result => {
-            resolve(result)
-        })
+    chrome.storage.local.set({ cwConfigStorageKey: cwConfigStr }, function () {
+        getConfig().then(res => console.log(res))
     })
 }
 
@@ -33,6 +35,10 @@ export function getConfigTemplate() {
         ['希望AKB48 Team SH 来和你见面的区域', '']
     ])
     return cwTemplate
+}
+
+export function initConfig() {
+    setConfig(getConfigTemplate())
 }
 
 function mapToJson(map) {
